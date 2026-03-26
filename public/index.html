@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft UI Dashboard - Longnn7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
+        .soft-shadow { box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05); }
+        .glass-header { background: linear-gradient(310deg, #7928ca, #ff0080); height: 300px; border-radius: 15px; }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="glass-header w-full mb-[-100px] relative z-0"></div>
+
+        <div class="relative z-10 bg-white/80 backdrop-blur-md mx-6 rounded-2xl p-6 soft-shadow flex flex-wrap items-center justify-between border border-white">
+            <div class="flex items-center space-x-4">
+                <img src="https://i.pravatar.cc/100" class="w-20 h-20 rounded-xl shadow-lg">
+                <div>
+                    <h5 class="text-xl font-bold text-slate-700">Alec Thompson</h5>
+                    <p class="text-sm text-slate-500 font-semibold">CEO / Co-Founder</p>
+                </div>
+            </div>
+            <div class="flex space-x-2 mt-4 lg:mt-0">
+                <button class="bg-white px-4 py-2 rounded-lg text-xs font-bold uppercase soft-shadow border border-slate-100">App</button>
+                <button class="px-4 py-2 rounded-lg text-xs font-bold uppercase">Messages</button>
+                <button class="px-4 py-2 rounded-lg text-xs font-bold uppercase">Settings</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 px-6">
+            <div class="bg-white rounded-2xl p-6 soft-shadow">
+                <h6 class="font-bold text-slate-700 mb-4">Platform Settings</h6>
+                <div class="space-y-4 text-sm text-slate-500">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" checked class="rounded"> <span>Email me when follows me</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" class="rounded"> <span>Monthly product updates</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 soft-shadow border-l border-slate-100">
+                <h6 class="font-bold text-slate-700 mb-4">Profile Information</h6>
+                <p class="text-sm text-slate-500 mb-4 italic">"Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no..."</p>
+                <div class="text-sm">
+                    <p class="mb-2"><strong>Full Name:</strong> Alec M. Thompson</p>
+                    <p class="mb-2"><strong>Mobile:</strong> (44) 123 1234 123</p>
+                    <p><strong>Email:</strong> alec@vng.vn</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 soft-shadow">
+                <h6 class="font-bold text-slate-700 mb-4">Conversations</h6>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <img src="https://i.pravatar.cc/50?u=1" class="w-10 h-10 rounded-lg">
+                            <div><p class="text-sm font-bold">Sophie B.</p><p class="text-xs text-slate-500">Hi! I need more info..</p></div>
+                        </div>
+                        <button class="text-pink-500 text-xs font-bold uppercase">Reply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

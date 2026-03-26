@@ -87,8 +87,7 @@ app.get('/healthz', (req, res) => {
 
 // --- ROUTING GIAO DIỆN ---
 app.get('/detail', (req, res) => res.sendFile(path.join(__dirname, 'public/detail.html')));
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
-
+app.get('(.*)', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 // --- KHỞI CHẠY ---
 app.listen(PORT, () => {
     console.log(`

@@ -1,72 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soft UI Dashboard - Longnn7</title>
+    <title>VNG Cloud Project - Longnn7</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
-        .soft-shadow { box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05); }
-        .glass-header { background: linear-gradient(310deg, #7928ca, #ff0080); height: 300px; border-radius: 15px; }
+        html { scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="p-4">
-    <div class="max-w-7xl mx-auto">
-        <div class="glass-header w-full mb-[-100px] relative z-0"></div>
+<body class="bg-slate-50 text-slate-800">
 
-        <div class="relative z-10 bg-white/80 backdrop-blur-md mx-6 rounded-2xl p-6 soft-shadow flex flex-wrap items-center justify-between border border-white">
-            <div class="flex items-center space-x-4">
-                <img src="https://i.pravatar.cc/100" class="w-20 h-20 rounded-xl shadow-lg">
-                <div>
-                    <h5 class="text-xl font-bold text-slate-700">Alec Thompson</h5>
-                    <p class="text-sm text-slate-500 font-semibold">CEO / Co-Founder</p>
-                </div>
+    <nav class="fixed w-full z-50 glass border-b border-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                VCR_APP
             </div>
-            <div class="flex space-x-2 mt-4 lg:mt-0">
-                <button class="bg-white px-4 py-2 rounded-lg text-xs font-bold uppercase soft-shadow border border-slate-100">App</button>
-                <button class="px-4 py-2 rounded-lg text-xs font-bold uppercase">Messages</button>
-                <button class="px-4 py-2 rounded-lg text-xs font-bold uppercase">Settings</button>
+            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase">
+                <a href="#home" class="hover:text-blue-600 transition">Trang chủ</a>
+                <a href="#services" class="hover:text-blue-600 transition">Dịch vụ</a>
+                <a href="#about" class="hover:text-blue-600 transition">Về chúng tôi</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Liên hệ</a>
+            </div>
+            <button class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition">
+                Bắt đầu ngay
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold uppercase">Công nghệ Docker & VCR</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold mt-6 mb-8 leading-tight">
+                Xây dựng tương lai <br> <span class="text-blue-600">trên nền tảng Cloud</span>
+            </h1>
+            <p class="text-slate-500 max-w-2xl mx-auto text-lg mb-10">
+                Hệ thống tự động hóa CI/CD giúp bạn triển khai ứng dụng nhanh chóng, bảo mật và ổn định tuyệt đối trên VNG Cloud.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <img src="https://img.icons8.com/color/48/000000/docker.png" class="w-12 h-12">
+                <img src="https://img.icons8.com/color/48/000000/nodejs.png" class="w-12 h-12">
+                <img src="https://img.icons8.com/fluency/48/000000/github.png" class="w-12 h-12">
             </div>
         </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 px-6">
-            <div class="bg-white rounded-2xl p-6 soft-shadow">
-                <h6 class="font-bold text-slate-700 mb-4">Platform Settings</h6>
-                <div class="space-y-4 text-sm text-slate-500">
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox" checked class="rounded"> <span>Email me when follows me</span>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <input type="checkbox" class="rounded"> <span>Monthly product updates</span>
-                    </div>
-                </div>
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Tính năng vượt trội</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
             </div>
-
-            <div class="bg-white rounded-2xl p-6 soft-shadow border-l border-slate-100">
-                <h6 class="font-bold text-slate-700 mb-4">Profile Information</h6>
-                <p class="text-sm text-slate-500 mb-4 italic">"Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no..."</p>
-                <div class="text-sm">
-                    <p class="mb-2"><strong>Full Name:</strong> Alec M. Thompson</p>
-                    <p class="mb-2"><strong>Mobile:</strong> (44) 123 1234 123</p>
-                    <p><strong>Email:</strong> alec@vng.vn</p>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl p-6 soft-shadow">
-                <h6 class="font-bold text-slate-700 mb-4">Conversations</h6>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://i.pravatar.cc/50?u=1" class="w-10 h-10 rounded-lg">
-                            <div><p class="text-sm font-bold">Sophie B.</p><p class="text-xs text-slate-500">Hi! I need more info..</p></div>
-                        </div>
-                        <button class="text-pink-500 text-xs font-bold uppercase">Reply</button>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-6">
+                        <i class="fas fa-rocket text-xl"></i>
                     </div>
+                    <h3 class="text-xl font-bold mb-4">Triển khai cực nhanh</h3>
+                    <p class="text-slate-500 text-sm">Chỉ mất vài giây để cập nhật phiên bản mới nhất lên hệ thống VCR.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white mb-6">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Bảo mật tuyệt đối</h3>
+                    <p class="text-slate-500 text-sm">Quản lý Image tập trung và an toàn trên hạ tầng của VNG Cloud.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition">
+                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center text-white mb-6">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Tự động hóa hoàn toàn</h3>
+                    <p class="text-slate-500 text-sm">Từ GitHub tới Cloud, mọi thứ đều được robot tự động xử lý.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="text-2xl font-black text-white mb-6">VCR_APP</div>
+                <p class="text-sm">Hệ thống Demo CI/CD chuyên nghiệp thực hiện bởi Longnn7. Khám phá sức mạnh của Docker và Cloud.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Liên kết</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Về chúng tôi</a></li>
+                    <li><a href="#" class="hover:text-white transition">Dịch vụ</a></li>
+                    <li><a href="#" class="hover:text-white transition">Dự án</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Hỗ trợ</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Trung tâm trợ giúp</a></li>
+                    <li><a href="#" class="hover:text-white transition">Tài liệu API</a></li>
+                    <li><a href="#" class="hover:text-white transition">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6">Kết nối</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-400 transition text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-slate-700 transition text-white"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-slate-800 text-center text-xs">
+            © 2026 Longnn7 Project. Đã đăng ký bản quyền. Chạy trên hạ tầng VNG Cloud.
+        </div>
+    </footer>
+
 </body>
 </html>

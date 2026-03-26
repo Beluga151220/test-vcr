@@ -1,0 +1,7 @@
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+    <button onclick="filterByCategory('ALL')" class="px-4 py-2 rounded-full bg-gray-200 text-xs font-bold hover:bg-violet-600 hover:text-white transition">TẤT CẢ</button>
+    <button onclick="filterByCategory('AI')" class="px-4 py-2 rounded-full bg-gray-200 text-xs font-bold hover:bg-violet-600 hover:text-white transition">AI</button>
+    <button onclick="filterByCategory('K8s')" class="px-4 py-2 rounded-full bg-gray-200 text-xs font-bold hover:bg-violet-600 hover:text-white transition">K8s</button>
+    <button onclick="filterByCategory('Docker')" class="px-4 py-2 rounded-full bg-gray-200 text-xs font-bold hover:bg-violet-600 hover:text-white transition">DOCKER</button>
+    <button onclick="filterByCategory('DevOps')" class="px-4 py-2 rounded-full bg-gray-200 text-xs font-bold hover:bg-violet-600 hover:text-white transition">DEVOPS</button>
+</div>

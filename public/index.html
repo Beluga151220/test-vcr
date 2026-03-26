@@ -3,111 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Tech Experience</title>
+    <title>K8s Management Console</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .animate-float {
-            animation: float 6s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
         }
     </style>
 </head>
-<body class="bg-[#0f172a] text-white overflow-x-hidden">
+<body class="bg-[#020617] text-slate-200 min-h-screen overflow-x-hidden">
 
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-600/20 rounded-full blur-[120px]"></div>
+    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
+        <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-900/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-900/20 rounded-full blur-[120px]"></div>
     </div>
 
-    <nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
-        <div class="text-2xl font-extrabold tracking-tighter uppercase">Nexus<span class="text-blue-500">.</span>IO</div>
-        <div class="hidden md:flex space-x-8 font-medium text-gray-400">
-            <a href="#" class="hover:text-white transition">Dịch vụ</a>
-            <a href="#" class="hover:text-white transition">Dự án</a>
-            <a href="#" class="hover:text-white transition">Về chúng tôi</a>
+    <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <i data-lucide="terminal" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight uppercase">Cloud<span class="text-blue-500">Ops</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#features" class="hover:text-white transition">Tính năng</a>
+                <a href="#monitor" class="hover:text-white transition">Giám sát</a>
+                <a href="#deploy" class="hover:text-white transition">Triển khai</a>
+            </div>
+            <button id="btn-start" class="btn-glow bg-blue-600 hover:bg-blue-500 text-white text-sm px-5 py-2 rounded-lg font-semibold transition-all">
+                Kết nối Cluster
+            </button>
         </div>
-        <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full font-semibold transition shadow-lg shadow-blue-500/20">
-            Bắt đầu ngay
-        </button>
     </nav>
 
-    
-    <section class="relative max-w-7xl mx-auto px-8 py-20 lg:py-32 flex flex-col lg:flex-row items-center justify-between">
-        <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
-            <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
-                Xây dựng tương lai <br> 
-                <span class="gradient-text">với công nghệ số</span>
+    <main class="max-w-7xl mx-auto px-6 pt-20 pb-32 flex flex-col lg:flex-row items-center gap-16">
+        <div class="lg:w-1/2 space-y-8">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span>VCR Registry Connected</span>
+            </div>
+            <h1 class="text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                Quản lý <br> 
+                <span class="gradient-text text-8xl">Kubernetes</span>
             </h1>
-            <p class="text-gray-400 text-lg max-w-lg mx-auto lg:mx-0">
-                Giải pháp tối ưu cho ứng dụng container, triển khai siêu tốc trên nền tảng Cloud. Đẹp hơn, mạnh hơn và nhanh hơn bao giờ hết.
+            <p class="text-slate-400 text-lg max-w-lg leading-relaxed">
+                Tối ưu hóa quy trình đẩy Image từ registry lên VM. Kiểm tra log, quản lý Ingress và giám sát tài nguyên chỉ trong một giao diện duy nhất.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:scale-105 transition duration-300">
-                    Khám phá dự án
+            <div class="flex flex-wrap gap-4">
+                <button id="btn-explore" class="px-8 py-4 bg-white text-slate-950 font-bold rounded-xl hover:bg-slate-200 transition duration-300">
+                    Kiểm tra Pods
                 </button>
-                <button class="px-8 py-4 glass font-bold rounded-xl hover:bg-white/10 transition duration-300">
-                    Xem Demo
+                <button id="btn-demo" class="px-8 py-4 glass font-bold rounded-xl hover:bg-white/5 transition duration-300 border border-white/10">
+                    Xem Log Ingress
                 </button>
             </div>
         </div>
 
-        <div class="lg:w-1/2 mt-16 lg:mt-0 relative">
-            <div class="glass p-8 rounded-3xl animate-float relative z-10">
-                <div class="flex items-center space-x-2 mb-6">
-                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+        <div class="lg:w-1/2 w-full">
+            <div class="glass p-6 rounded-2xl animate-float border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-4">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 bg-red-500/80 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500/80 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500/80 rounded-full"></div>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-mono">root@k8s-master:~</span>
                 </div>
-                <code class="text-blue-400">
-                    <span class="text-purple-400">const</span> nexus = () => { <br>
-                    &nbsp;&nbsp;console.log(<span class="text-yellow-300">"Deploying to Cloud..."</span>); <br>
-                    &nbsp;&nbsp;<span class="text-gray-500">// Status: Awesome</span> <br>
-                    };
-                </code>
+                <div class="font-mono text-sm space-y-2">
+                    <p class="text-blue-400">$ kubectl get pods -n ingress-nginx</p>
+                    <p class="text-green-400">NAME &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; READY &nbsp; STATUS</p>
+                    <p class="text-slate-400">ingress-controller-v1 &nbsp; 1/1 &nbsp;&nbsp;&nbsp; Running</p>
+                    <p class="text-slate-400">ingress-default-backend 1/1 &nbsp;&nbsp;&nbsp; Running</p>
+                    <p class="text-blue-400 mt-4 animate-pulse">$ _</p>
+                </div>
             </div>
-            <div class="absolute inset-0 bg-blue-500/30 blur-[80px] -z-0"></div>
+        </div>
+    </main>
+
+    <section id="features" class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-2xl group hover:border-blue-500/30 transition-all cursor-default">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="container" class="text-blue-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">VCR Sync</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Tự động hóa việc kéo image từ VNG Cloud Registry trực tiếp về VM của bạn.</p>
+            </div>
+            <div class="glass p-8 rounded-2xl group hover:border-purple-500/30 transition-all cursor-default">
+                <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="activity" class="text-purple-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Monitoring</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Theo dõi sức khỏe các Node và Pod theo thời gian thực với độ trễ cực thấp.</p>
+            </div>
+            <div class="glass p-8 rounded-2xl group hover:border-pink-500/30 transition-all cursor-default">
+                <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                    <i data-lucide="cpu" class="text-pink-500 w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">VM Build</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Tối ưu hóa tài nguyên phần cứng cho các ứng dụng chạy trên Virtual Machine.</p>
+            </div>
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-8 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-2xl hover:border-blue-500/50 transition">
-                <i data-lucide="zap" class="text-blue-500 mb-4 w-10 h-10"></i>
-                <h3 class="text-xl font-bold mb-2">Siêu tốc độ</h3>
-                <p class="text-gray-400 text-sm">Trang web được tối ưu hóa để tải trong nháy mắt.</p>
-            </div>
-            <div class="glass p-8 rounded-2xl hover:border-purple-500/50 transition">
-                <i data-lucide="shield" class="text-purple-500 mb-4 w-10 h-10"></i>
-                <h3 class="text-xl font-bold mb-2">Bảo mật tuyệt đối</h3>
-                <p class="text-gray-400 text-sm">Hệ thống mã hóa đa lớp bảo vệ dữ liệu của bạn.</p>
-            </div>
-            <div class="glass p-8 rounded-2xl hover:border-pink-500/50 transition">
-                <i data-lucide="layout" class="text-pink-500 mb-4 w-10 h-10"></i>
-                <h3 class="text-xl font-bold mb-2">Giao diện hiện đại</h3>
-                <p class="text-gray-400 text-sm">Thiết kế theo xu hướng UI/UX mới nhất 2026.</p>
-            </div>
-        </div>
-    </section>
+    <footer class="py-10 text-center text-slate-600 text-xs border-t border-white/5">
+        <p>&copy; 2026 CloudOps Infrastructure. Triển khai mượt mà trên VNG Cloud.</p>
+    </footer>
 
     <script>
         // Khởi tạo icons
         lucide.createIcons();
+
+        // Xử lý các nút bấm
+        const buttons = {
+            'btn-start': 'Đang chuẩn bị kết nối Cluster...',
+            'btn-explore': 'Đang truy vấn danh sách Pods từ K8s...',
+            'btn-demo': 'Đang mở luồng Log của Ingress Controller...'
+        };
+
+        Object.keys(buttons).forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) {
+                btn.onclick = () => {
+                    alert('Hành động: ' + buttons[id] + '\n\nTrạng thái: Đây là giao diện giả lập (UI). Bạn có thể viết thêm API gọi đến backend để lấy dữ liệu thật.');
+                };
+            }
+        });
     </script>
 </body>
 </html>

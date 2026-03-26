@@ -3,86 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudOps - System Management</title>
+    <title>CloudOps Dashboard v5</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card-hover:hover { transform: translateY(-10px); border-color: rgba(96, 165, 250, 0.5); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); }
+        body { background: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+        .gradient-border:hover { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59,130,246,0.2); }
     </style>
 </head>
-<body class="bg-[#020617] text-slate-200 min-h-screen">
-    <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-900/10 rounded-full blur-[120px]"></div>
-    </div>
-
-    <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center"><i data-lucide="terminal" class="text-white w-5 h-5"></i></div>
-                <span class="text-xl font-bold uppercase tracking-tight">Cloud<span class="text-blue-500">Ops</span></span>
-            </div>
-            <a href="#doc-section" class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-lg font-semibold text-sm transition-all">Xem Tài Liệu</a>
+<body class="min-h-screen">
+    <nav class="glass sticky top-0 z-50 px-8 py-4 border-b border-white/5 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="bg-blue-600 p-1.5 rounded-lg"><i data-lucide="layout-dashboard" class="text-white w-5 h-5"></i></div>
+            <span class="text-xl font-black tracking-tighter uppercase italic">Cloud<span class="text-blue-500">Ops</span></span>
+        </div>
+        <div class="flex gap-4">
+            <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/20 flex items-center gap-2">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> VM Server Online
+            </span>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row items-center gap-12">
-        <div class="lg:w-1/2 space-y-6">
-            <h1 class="text-6xl font-extrabold leading-tight">Quản lý <br><span class="gradient-text text-7xl">Hệ Thống</span></h1>
-            <p class="text-slate-400 text-lg">Hệ thống tra cứu tài liệu DevOps, K8s và Docker nội bộ dành cho Longnn7.</p>
+    <header class="max-w-7xl mx-auto px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+            <h1 class="text-7xl font-extrabold tracking-tight leading-none">VCR <br><span class="text-blue-500">Infrastructure</span></h1>
+            <p class="text-slate-400 text-lg max-w-md">Hệ thống quản lý tài liệu và giám sát Container dành riêng cho Longnn7.</p>
+            <div class="flex gap-4">
+                <button onclick="window.scrollTo(0, 800)" class="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-slate-200 transition">Khám phá kho tài liệu</button>
+            </div>
         </div>
-        <div class="lg:w-1/2 w-full glass p-6 rounded-2xl border-blue-500/20 shadow-2xl font-mono text-sm">
-            <p class="text-blue-400">$ fetch /api/docs --status 200</p>
-            <p class="text-green-400 mt-2">>> Connection Established with VCR...</p>
+        <div class="glass p-6 rounded-3xl border-blue-500/20 shadow-2xl font-mono text-sm space-y-2">
+            <p class="text-blue-400">$ kubectl get nodes</p>
+            <p class="text-slate-500">NAME &nbsp;&nbsp;&nbsp; STATUS &nbsp; ROLES &nbsp; AGE</p>
+            <p class="text-slate-300">vng-node-1 Ready &nbsp; worker 12d</p>
+            <p class="text-slate-300">vng-node-2 Ready &nbsp; worker 12d</p>
+            <p class="text-blue-400 mt-4 animate-pulse">$ _</p>
         </div>
     </header>
 
-    <section id="doc-section" class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-            <i data-lucide="layers" class="text-blue-500"></i> Kho Tài Liệu Đa Ngành
-        </h2>
-        
-        <div id="docs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="text-slate-500 italic">Đang tải dữ liệu hệ thống...</div>
+    <section class="max-w-7xl mx-auto px-8 pb-32">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">Tài liệu hệ thống</h2>
+                <p class="text-slate-500 text-sm">Dữ liệu được cập nhật từ API nội bộ</p>
+            </div>
         </div>
+        
+        <div id="docs-grid" class="grid md:grid-cols-3 gap-6">
+            </div>
     </section>
 
     <script>
         lucide.createIcons();
-
-        // FETCH DATA TỪ API CỦA BẠN
-        async function loadDocs() {
-            try {
-                const response = await fetch('/api/docs');
-                const docs = await response.json();
-                const container = document.getElementById('docs-container');
-                
-                container.innerHTML = docs.map(doc => `
-                    <div class="glass p-6 rounded-2xl card-hover transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-[10px] font-bold uppercase px-2 py-1 bg-blue-500/20 text-blue-400 rounded-md border border-blue-500/30">${doc.category}</span>
-                                <i data-lucide="external-link" class="w-4 h-4 text-slate-500"></i>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2 leading-tight">${doc.title}</h3>
-                            <p class="text-slate-400 text-xs line-clamp-2">${doc.desc}</p>
-                        </div>
-                        <a href="/detail?id=${doc.id}" class="mt-6 block w-full py-2 text-center bg-white/5 hover:bg-white/10 rounded-lg text-sm font-semibold transition border border-white/5">
-                            Chi tiết
-                        </a>
+        async function fetchDocs() {
+            const res = await fetch('/api/docs');
+            const data = await res.json();
+            document.getElementById('docs-grid').innerHTML = data.map(doc => `
+                <div class="glass p-8 rounded-3xl gradient-border transition-all flex flex-col justify-between border-white/5">
+                    <div>
+                        <img src="${doc.img}" class="w-12 h-12 object-contain mb-6 grayscale hover:grayscale-0 transition">
+                        <span class="text-[10px] font-bold tracking-widest uppercase text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md border border-blue-400/20">${doc.category}</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2">${doc.title}</h3>
+                        <p class="text-slate-500 text-sm line-clamp-2">${doc.desc}</p>
                     </div>
-                `).join('');
-                
-                lucide.createIcons(); // Re-render icons
-            } catch (err) {
-                console.error("Lỗi:", err);
-            }
+                    <a href="/detail?id=${doc.id}" class="mt-8 flex justify-between items-center group">
+                        <span class="font-bold text-sm text-slate-300 group-hover:text-white transition">Đọc chi tiết</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-blue-500 group-hover:translate-x-2 transition"></i>
+                    </a>
+                </div>
+            `).join('');
+            lucide.createIcons();
         }
-
-        loadDocs();
+        fetchDocs();
     </script>
 </body>
 </html>

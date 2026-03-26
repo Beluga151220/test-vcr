@@ -3,117 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VNG Cloud Project - Longnn7</title>
+    <title>Longnn7 Knowledge Hub - Docker, K8s & Cloud</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
+        body { font-family: 'Poppins', sans-serif; background: #fafafa; }
+        .soft-shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); }
+        .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+        .gradient-text { bg-gradient-to-r from-violet-600 to-indigo-600; -webkit-background-clip: text; color: transparent; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="min-h-screen text-gray-900">
 
-    <nav class="fixed w-full z-50 glass border-b border-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                VCR_APP
+    <header class="fixed top-0 w-full z-50 glass-header">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold gradient-text">LONGNN7.docs</div>
+            <div class="relative w-full max-w-lg mx-8">
+                <input type="text" id="searchInput" onkeyup="searchDocs()" placeholder="Tìm kiếm tài liệu Docker, K8s..." 
+                class="w-full pl-12 pr-6 py-3 rounded-xl bg-gray-100/70 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-violet-300 focus:bg-white transition text-sm">
+                <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
             </div>
-            <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase">
-                <a href="#home" class="hover:text-blue-600 transition">Trang chủ</a>
-                <a href="#services" class="hover:text-blue-600 transition">Dịch vụ</a>
-                <a href="#about" class="hover:text-blue-600 transition">Về chúng tôi</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Liên hệ</a>
-            </div>
-            <button class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-blue-200 hover:scale-105 transition">
-                Bắt đầu ngay
-            </button>
-        </div>
-    </nav>
-
-    <section id="home" class="pt-32 pb-20 px-4">
-        <div class="max-w-7xl mx-auto text-center">
-            <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold uppercase">Công nghệ Docker & VCR</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold mt-6 mb-8 leading-tight">
-                Xây dựng tương lai <br> <span class="text-blue-600">trên nền tảng Cloud</span>
-            </h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-lg mb-10">
-                Hệ thống tự động hóa CI/CD giúp bạn triển khai ứng dụng nhanh chóng, bảo mật và ổn định tuyệt đối trên VNG Cloud.
-            </p>
-            <div class="flex justify-center space-x-4">
-                <img src="https://img.icons8.com/color/48/000000/docker.png" class="w-12 h-12">
-                <img src="https://img.icons8.com/color/48/000000/nodejs.png" class="w-12 h-12">
-                <img src="https://img.icons8.com/fluency/48/000000/github.png" class="w-12 h-12">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center font-bold text-sm">L</div>
+                <span class="text-sm font-semibold text-gray-700">longnn7</span>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Tính năng vượt trội</h2>
-                <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+    <main class="max-w-7xl mx-auto px-6 pt-32 pb-16">
+        <div class="mb-12">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-violet-500 mb-2">Hệ thống lưu trữ kiến thức</h2>
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Thư Viện Tài Liệu Ảo Hóa</h1>
+            <p class="text-gray-500 max-w-xl text-lg">Nơi tập hợp tất cả các ghi chú, hướng dẫn và tài liệu thực tế về Docker, Kubernetes và quản trị hệ thống Cloud.</p>
+        </div>
+
+        <div id="docGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition">
-                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white mb-6">
-                        <i class="fas fa-rocket text-xl"></i>
+
+        <div id="noResults" class="hidden text-center py-24 text-gray-400">
+            <i class="fas fa-search-minus text-6xl mb-6"></i>
+            <p class="text-lg">Không tìm thấy tài liệu phù hợp.</p>
+            <p class="text-sm">Thử tìm kiếm với từ khóa khác xem sao nhé!</p>
+        </div>
+    </main>
+
+    <script>
+        // Dữ liệu tài liệu (Giữ nguyên từ index.js, ở đây là minh họa để giao diện đẹp)
+        let allDocs = [];
+
+        // Lấy dữ liệu thực từ API lúc tải trang
+        async function loadDocs() {
+            try {
+                const response = await fetch('/api/docs');
+                allDocs = await response.json();
+                renderDocs(allDocs);
+            } catch (error) {
+                console.error("Không thể lấy dữ liệu:", error);
+                // Hiển thị dữ liệu mẫu nếu API lỗi
+                renderDocs([
+                    { title: "Docker Cơ Bản cho người mới", category: "Docker", link: "#", desc: "Cách viết Dockerfile và quản lý Container." },
+                    { title: "Kubernetes Architecture", category: "K8s", link: "#", desc: "Tìm hiểu về Control Plane và Worker Node." },
+                    { title: "Triển khai Ingress Controller", category: "K8s", link: "#", desc: "Cấu hình Load Balancer cho cụm K8s." },
+                ]);
+            }
+        }
+
+        // Hàm hiển thị Card tài liệu
+        function renderDocs(docs) {
+            const grid = document.getElementById('docGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (docs.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+            } else {
+                grid.classList.remove('hidden');
+                noResults.classList.add('hidden');
+                
+                grid.innerHTML = docs.map(doc => `
+                    <div class="bg-white p-8 rounded-3xl soft-shadow border border-gray-100 card-hover transition-all duration-300 flex flex-col">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-4 py-1.5 bg-violet-50 text-violet-700 text-xs font-bold rounded-full uppercase tracking-wider">${doc.category}</span>
+                            <i class="fas fa-bookmark text-violet-200"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight flex-grow">${doc.title}</h3>
+                        <p class="text-gray-500 text-sm mb-6">${doc.desc}</p>
+                        <a href="${doc.link}" class="w-full text-center bg-violet-600 text-white font-bold text-sm py-3 rounded-xl shadow-lg shadow-violet-200 hover:bg-violet-700 transition flex items-center justify-center">
+                            Xem chi tiết <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Triển khai cực nhanh</h3>
-                    <p class="text-slate-500 text-sm">Chỉ mất vài giây để cập nhật phiên bản mới nhất lên hệ thống VCR.</p>
-                </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition">
-                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white mb-6">
-                        <i class="fas fa-shield-alt text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Bảo mật tuyệt đối</h3>
-                    <p class="text-slate-500 text-sm">Quản lý Image tập trung và an toàn trên hạ tầng của VNG Cloud.</p>
-                </div>
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition">
-                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center text-white mb-6">
-                        <i class="fas fa-chart-line text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">Tự động hóa hoàn toàn</h3>
-                    <p class="text-slate-500 text-sm">Từ GitHub tới Cloud, mọi thứ đều được robot tự động xử lý.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                `).join('');
+            }
+        }
 
-    <footer class="bg-slate-900 text-slate-400 py-16">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div>
-                <div class="text-2xl font-black text-white mb-6">VCR_APP</div>
-                <p class="text-sm">Hệ thống Demo CI/CD chuyên nghiệp thực hiện bởi Longnn7. Khám phá sức mạnh của Docker và Cloud.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-6">Liên kết</h4>
-                <ul class="space-y-4 text-sm">
-                    <li><a href="#" class="hover:text-white transition">Về chúng tôi</a></li>
-                    <li><a href="#" class="hover:text-white transition">Dịch vụ</a></li>
-                    <li><a href="#" class="hover:text-white transition">Dự án</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-6">Hỗ trợ</h4>
-                <ul class="space-y-4 text-sm">
-                    <li><a href="#" class="hover:text-white transition">Trung tâm trợ giúp</a></li>
-                    <li><a href="#" class="hover:text-white transition">Tài liệu API</a></li>
-                    <li><a href="#" class="hover:text-white transition">Chính sách bảo mật</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-6">Kết nối</h4>
-                <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-400 transition text-white"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-slate-700 transition text-white"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-slate-800 text-center text-xs">
-            © 2026 Longnn7 Project. Đã đăng ký bản quyền. Chạy trên hạ tầng VNG Cloud.
-        </div>
-    </footer>
+        // Hàm tìm kiếm
+        function searchDocs() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = allDocs.filter(doc => 
+                doc.title.toLowerCase().includes(query) || 
+                doc.category.toLowerCase().includes(query)
+            );
+            renderDocs(filtered);
+        }
 
+        loadDocs();
+    </script>
 </body>
 </html>

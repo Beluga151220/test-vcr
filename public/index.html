@@ -3,77 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudOps Dashboard v5</title>
+    <title>CloudOps v5 - NextGen Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
-        body { background: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
-        .gradient-border:hover { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59,130,246,0.2); }
+        body { background: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); }
+        .gradient-text { background: linear-gradient(90deg, #3b82f6, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .aurora { position: fixed; inset: 0; z-index: -1; filter: blur(120px); opacity: 0.2; }
+        .bg-grid { background-image: radial-gradient(circle, #1e293b 1px, transparent 1px); background-size: 30px 30px; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen">
-    <nav class="glass sticky top-0 z-50 px-8 py-4 border-b border-white/5 flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <div class="bg-blue-600 p-1.5 rounded-lg"><i data-lucide="layout-dashboard" class="text-white w-5 h-5"></i></div>
-            <span class="text-xl font-black tracking-tighter uppercase italic">Cloud<span class="text-blue-500">Ops</span></span>
+<body class="bg-grid">
+    <div class="aurora">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600 rounded-full"></div>
+    </div>
+
+    <nav class="glass sticky top-0 z-50 px-10 py-5 flex justify-between items-center border-b border-white/5">
+        <div class="flex items-center gap-2 font-black text-2xl tracking-tighter italic uppercase">
+            <span class="text-blue-500">Cloud</span>Ops.v5
         </div>
-        <div class="flex gap-4">
-            <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/20 flex items-center gap-2">
-                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> VM Server Online
-            </span>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="#features" class="hover:text-white transition">Tính năng</a>
+            <a href="#terminal" class="hover:text-white transition">Console</a>
+            <a href="#docs" class="hover:text-white transition">Tài liệu</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1 rounded-full font-bold">VCR v1.2.0</span>
         </div>
     </nav>
 
-    <header class="max-w-7xl mx-auto px-8 py-16 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-            <h1 class="text-7xl font-extrabold tracking-tight leading-none">VCR <br><span class="text-blue-500">Infrastructure</span></h1>
-            <p class="text-slate-400 text-lg max-w-md">Hệ thống quản lý tài liệu và giám sát Container dành riêng cho Longnn7.</p>
-            <div class="flex gap-4">
-                <button onclick="window.scrollTo(0, 800)" class="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-slate-200 transition">Khám phá kho tài liệu</button>
+    <header class="max-w-7xl mx-auto px-6 pt-32 pb-48 text-center relative">
+        <div data-aos="fade-up">
+            <span class="px-4 py-1.5 rounded-full glass border border-white/10 text-xs font-bold text-blue-400 mb-6 inline-block">DEPLOY ON VNG CLOUD VM</span>
+            <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-none">
+                Build. Tag. <br><span class="gradient-text italic">Push to VCR.</span>
+            </h1>
+            <p class="text-slate-400 text-xl max-w-2xl mx-auto mb-12">
+                Hệ thống quản lý Image và Kubernetes dành riêng cho dự án của Longnn7. 
+                Nhanh hơn, mượt hơn và bảo mật hơn trên hạ tầng Cloud.
+            </p>
+            <div class="flex justify-center gap-6">
+                <button class="bg-white text-black px-10 py-4 rounded-2xl font-black hover:scale-105 transition active:scale-95 shadow-xl shadow-white/5">Bắt đầu ngay</button>
+                <button class="glass px-10 py-4 rounded-2xl font-bold hover:bg-white/5 transition border border-white/10">Xem Demo</button>
             </div>
-        </div>
-        <div class="glass p-6 rounded-3xl border-blue-500/20 shadow-2xl font-mono text-sm space-y-2">
-            <p class="text-blue-400">$ kubectl get nodes</p>
-            <p class="text-slate-500">NAME &nbsp;&nbsp;&nbsp; STATUS &nbsp; ROLES &nbsp; AGE</p>
-            <p class="text-slate-300">vng-node-1 Ready &nbsp; worker 12d</p>
-            <p class="text-slate-300">vng-node-2 Ready &nbsp; worker 12d</p>
-            <p class="text-blue-400 mt-4 animate-pulse">$ _</p>
         </div>
     </header>
 
-    <section class="max-w-7xl mx-auto px-8 pb-32">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">Tài liệu hệ thống</h2>
-                <p class="text-slate-500 text-sm">Dữ liệu được cập nhật từ API nội bộ</p>
+    <section class="max-w-7xl mx-auto px-6 mb-32 grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up">
+        <div class="glass p-8 rounded-3xl text-center">
+            <div class="text-4xl font-black mb-1">99.9%</div>
+            <div class="text-slate-500 text-xs uppercase font-bold tracking-widest">Uptime VM</div>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center border-blue-500/20">
+            <div class="text-4xl font-black mb-1 text-blue-500">1.2s</div>
+            <div class="text-slate-500 text-xs uppercase font-bold tracking-widest">Image Sync</div>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center">
+            <div class="text-4xl font-black mb-1">24/7</div>
+            <div class="text-slate-500 text-xs uppercase font-bold tracking-widest">Monitoring</div>
+        </div>
+        <div class="glass p-8 rounded-3xl text-center">
+            <div class="text-4xl font-black mb-1">25+</div>
+            <div class="text-slate-500 text-xs uppercase font-bold tracking-widest">K8s Clusters</div>
+        </div>
+    </section>
+
+    <section id="features" class="max-w-7xl mx-auto px-6 py-32 border-t border-white/5">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4 italic uppercase">Sức mạnh của v5</h2>
+            <div class="w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="space-y-4" data-aos="fade-right">
+                <i data-lucide="zap" class="text-blue-500 w-12 h-12"></i>
+                <h3 class="text-2xl font-bold italic uppercase">VCR Optimized</h3>
+                <p class="text-slate-400">Tối ưu hóa băng thông khi kéo image từ VNG Cloud Registry trực tiếp về VM.</p>
+            </div>
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <i data-lucide="shield-check" class="text-purple-500 w-12 h-12"></i>
+                <h3 class="text-2xl font-bold italic uppercase">Security First</h3>
+                <p class="text-slate-400">Hệ thống phân quyền truy cập và mã hóa image chuẩn container nội bộ.</p>
+            </div>
+            <div class="space-y-4" data-aos="fade-left" data-aos-delay="200">
+                <i data-lucide="bar-chart-3" class="text-pink-500 w-12 h-12"></i>
+                <h3 class="text-2xl font-bold italic uppercase">Realtime Log</h3>
+                <p class="text-slate-400">Theo dõi log của Ingress Controller và các Pods ngay tại giao diện Console.</p>
             </div>
         </div>
+    </section>
+
+    <section id="terminal" class="max-w-5xl mx-auto px-6 py-32" data-aos="zoom-in">
+        <div class="glass p-1 rounded-[2.5rem] bg-gradient-to-br from-blue-500/20 to-purple-500/20">
+            <div class="bg-[#0b1224] rounded-[2.3rem] p-10 font-mono text-sm leading-relaxed relative overflow-hidden">
+                <div class="flex gap-2 mb-8">
+                    <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-blue-400">$ git add . && git commit -m "update web-v5"</p>
+                    <p class="text-slate-500">[main 77da3b2] update web-v5</p>
+                    <p class="text-blue-400">$ docker build -t vcr.vngcloud.vn/longnn7/web:v5 .</p>
+                    <p class="text-slate-300">STEP 1/5: FROM node:18-alpine</p>
+                    <p class="text-slate-300">STEP 5/5: CMD ["node", "index.js"]</p>
+                    <p class="text-green-400 font-bold underline italic uppercase tracking-tighter">✔ Success: Image built and ready for VCR</p>
+                    <p class="animate-pulse text-white">$ _</p>
+                </div>
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="docs" class="max-w-7xl mx-auto px-6 py-32 bg-[#020617]/50 border-t border-white/5">
+        <div class="flex justify-between items-end mb-16">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-bold italic uppercase">Kho tài liệu</h2>
+                <p class="text-slate-500">API nội bộ: <code>/api/docs</code></p>
+            </div>
+            <button onclick="fetchDocs()" class="glass px-6 py-2 rounded-full text-xs font-bold hover:bg-white/5 transition flex items-center gap-2">
+                <i data-lucide="refresh-cw" class="w-3 h-3"></i> TẢI LẠI
+            </button>
+        </div>
         
-        <div id="docs-grid" class="grid md:grid-cols-3 gap-6">
+        <div id="docs-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             </div>
     </section>
 
+    <footer class="py-20 border-t border-white/5 glass mt-20">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div>
+                <div class="font-black text-2xl italic tracking-tighter uppercase mb-2">CloudOps.v5</div>
+                <p class="text-slate-500 text-sm">Design by Longnn7 & Gemini 3 Flash</p>
+            </div>
+            <div class="flex gap-10 text-slate-400 text-sm font-bold">
+                <a href="#" class="hover:text-blue-500">VCR</a>
+                <a href="#" class="hover:text-blue-500">KUBERNETES</a>
+                <a href="#" class="hover:text-blue-500">VM BUILD</a>
+            </div>
+            <div class="text-slate-500 text-xs">
+                Copyright © 2026. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
     <script>
+	// Thêm đoạn này vào thẻ <script> của index.html
+	async function loadSystemStats() {
+    	    try {
+        	const res = await fetch('/api/sysinfo');
+        	const data = await res.json();
+        	// Giả sử bạn có các ID tương ứng trên HTML để hiển thị
+        	console.log("Server Info:", data);
+        	// Bạn có thể dùng dữ liệu này để đổ vào phần Stats Section thay vì số tĩnh
+    	    } catch (e) {
+        	console.log("Không lấy được thông tin hệ thống");
+    	    }
+}
+loadSystemStats();
+setInterval(loadSystemStats, 5000); // Cập nhật mỗi 5 giây cho "cháy"
+        // Init Libraries
+        AOS.init({ duration: 1000, once: true });
         lucide.createIcons();
+
+        // API Fetching
         async function fetchDocs() {
-            const res = await fetch('/api/docs');
-            const data = await res.json();
-            document.getElementById('docs-grid').innerHTML = data.map(doc => `
-                <div class="glass p-8 rounded-3xl gradient-border transition-all flex flex-col justify-between border-white/5">
-                    <div>
-                        <img src="${doc.img}" class="w-12 h-12 object-contain mb-6 grayscale hover:grayscale-0 transition">
-                        <span class="text-[10px] font-bold tracking-widest uppercase text-blue-400 bg-blue-400/10 px-2 py-1 rounded-md border border-blue-400/20">${doc.category}</span>
-                        <h3 class="text-xl font-bold mt-4 mb-2">${doc.title}</h3>
-                        <p class="text-slate-500 text-sm line-clamp-2">${doc.desc}</p>
+            const container = document.getElementById('docs-grid');
+            container.innerHTML = '<div class="text-slate-500 italic">Đang đồng bộ...</div>';
+            
+            try {
+                const res = await fetch('/api/docs');
+                const data = await res.json();
+                container.innerHTML = data.map(d => `
+                    <div class="glass p-10 rounded-[3rem] border border-white/5 hover:border-blue-500/40 transition-all group flex flex-col justify-between" data-aos="fade-up">
+                        <div>
+                            <div class="flex justify-between items-center mb-8">
+                                <img src="${d.img}" class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-500">
+                                <span class="text-[10px] font-black uppercase tracking-widest px-3 py-1 bg-white/5 rounded-full border border-white/10 text-slate-500">${d.category}</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-3 italic tracking-tight">${d.title}</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed line-clamp-3">${d.desc}</p>
+                        </div>
+                        <a href="/detail?id=${d.id}" class="mt-10 inline-flex items-center gap-3 font-black text-xs uppercase tracking-widest text-blue-400 group-hover:text-white transition">
+                            Chi tiết tài liệu <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition"></i>
+                        </a>
                     </div>
-                    <a href="/detail?id=${doc.id}" class="mt-8 flex justify-between items-center group">
-                        <span class="font-bold text-sm text-slate-300 group-hover:text-white transition">Đọc chi tiết</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4 text-blue-500 group-hover:translate-x-2 transition"></i>
-                    </a>
-                </div>
-            `).join('');
-            lucide.createIcons();
+                `).join('');
+                lucide.createIcons();
+            } catch (e) {
+                container.innerHTML = '<p class="text-red-400">Lỗi kết nối API!</p>';
+            }
         }
         fetchDocs();
     </script>
